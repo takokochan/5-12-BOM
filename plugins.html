@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<script type="text/javascript">
+
+//只适用于FF、safari、opera和chrome中
+function hasPlugin(name){
+	name = name.toLowerCase();//将参数转换为小写
+	for(var i=0;i < navigator.plugins.length;i++){
+		if(navigator.plugins[i].name.toLowerCase().indexOf(name) > -1){ //检测name属性是否相等
+			return true;
+		}
+	}
+
+	return false;
+}
+
+alert(hasPlugin('flash'));
+alert(hasPlugin('Java bpplet'));
+
+//IE中检测插件
+function hasIEPlugin(name){
+	try{
+		new ActiveXObject(name);
+		return true;
+	}catch(ex){
+		return false;
+	}
+}
+
+alert(hasIEPlugin('Shockwaveflash.Shockwaveflash'));
+alert(hasIEPlugin('QuickTime.QuickTime'));
+
+
+</script>
+</head>
+<body>
+</body>
+</html>
