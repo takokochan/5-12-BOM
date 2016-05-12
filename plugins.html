@@ -16,9 +16,6 @@ function hasPlugin(name){
 	return false;
 }
 
-alert(hasPlugin('flash'));
-alert(hasPlugin('Java bpplet'));
-
 //IE中检测插件
 function hasIEPlugin(name){
 	try{
@@ -29,10 +26,25 @@ function hasIEPlugin(name){
 	}
 }
 
-alert(hasIEPlugin('Shockwaveflash.Shockwaveflash'));
-alert(hasIEPlugin('QuickTime.QuickTime'));
+//检测flash
+function hasFlash(){
+	var result = hasPlugin('flash');
+	if(!result){
+		result = hasIEPlugin('Shockwaveflash.Shockwaveflash');
+	}
+	return result;
+}
+//检测QuickTime
+function hasQuickTime(){
+	var result = hasPlugin('QuickTime');
+	if(!result){
+		result = hasIEPlugin('QuickTime.QuickTime');
+	}
+	return result;
+}
 
-
+alert(hasFlash());
+alert(hasQuickTime());
 </script>
 </head>
 <body>
